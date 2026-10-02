@@ -672,3 +672,17 @@ legend { padding: 0; }
   .save-extra > div { border-left: 0; border-top: 1px solid var(--rule-navy); }
   .save-extra > div:nth-of-type(1) { border-top: 0; }
 }
+
+/* "On top of the mud bill" v10: heading row, then four points */
+.save-extra { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.save-extra h3 { grid-column: 1 / -1; padding-bottom: 0; }
+.save-extra > div:nth-of-type(1) { border-left: 0; }
+@media (max-width: 1180px) {
+  .save-extra { grid-template-columns: 1fr 1fr; }
+  .save-extra > div:nth-of-type(3) { border-left: 0; }
+  .save-extra > div:nth-of-type(n+3) { border-top: 1px solid var(--rule-navy); }
+}
+@media (max-width: 760px) {
+  .save-extra { grid-template-columns: 1fr; }
+  .save-extra > div { border-left: 0 !important; }
+}
