@@ -686,3 +686,44 @@ legend { padding: 0; }
   .save-extra { grid-template-columns: 1fr; }
   .save-extra > div { border-left: 0 !important; }
 }
+
+/* ---------- header: five index cells (Specs page added) ---------- */
+.tb-index { grid-template-columns: repeat(5, 1fr); }
+.tb-index a[aria-current="page"] { background: var(--paper-2); box-shadow: inset 0 -3px 0 var(--acc); }
+
+/* ---------- specs page ---------- */
+.spec-head, .cmp-head { padding: clamp(30px, 4vw, 54px) var(--pad) clamp(18px, 2vw, 26px); }
+.spec-head h1 { font-size: clamp(42px, 4.6vw, 72px); margin-bottom: 14px; }
+.cmp-head h2 { font-size: clamp(32px, 3.4vw, 52px); font-weight: 700; margin-bottom: 12px; }
+.spec-head p, .cmp-head p { font-size: 18px; line-height: 1.55; color: var(--ink-2); max-width: 40em; }
+.spec-grid { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(24px, 3vw, 48px); padding: 0 var(--pad) clamp(34px, 4vw, 56px); align-items: start; }
+.spec { border-top: 2px solid var(--ink); border-bottom: 2px solid var(--ink); }
+.spec caption { font: 700 22px/1.2 var(--display); color: var(--ink); padding-bottom: 12px; }
+.spec th { width: 38%; text-align: left; vertical-align: top; font: 500 13px/1.5 var(--mono); color: var(--ink-2); padding: 13px 16px 13px 0; border-bottom: 1px solid var(--rule-soft); }
+.spec td { padding: 11px 0; border-bottom: 1px solid var(--rule-soft); font-size: 17px; line-height: 1.45; }
+.spec tr:last-child th, .spec tr:last-child td { border-bottom: 0; }
+.spec .ask td a { color: var(--acc); font-weight: 600; }
+#compare { border-top: 2px solid var(--ink); }
+.cmp { border-top: 2px solid var(--ink); }
+.cmp thead th { font: 700 20px/1.2 var(--display); text-align: left; padding: 14px 18px; border-bottom: 1px solid var(--ink); }
+.cmp thead th:first-child { padding-left: var(--pad); }
+.cmp thead th:nth-child(3) { background: var(--navy); color: #fff; }
+.cmp tbody th { width: 22%; text-align: left; vertical-align: top; font: 600 17px/1.35 var(--display); padding: 16px 18px 16px var(--pad); border-bottom: 1px solid var(--rule-soft); }
+.cmp tbody td { width: 39%; vertical-align: top; padding: 16px 18px; border-bottom: 1px solid var(--rule-soft); font-size: 16.5px; line-height: 1.5; color: var(--ink-2); }
+.cmp tbody td:nth-child(3) { background: #E2EEE8; color: var(--ink); border-left: 3px solid var(--acc); font-weight: 500; }
+.cmp-note { padding: 14px var(--pad); font: 500 12.5px/1.5 var(--mono); color: var(--ink-2); border-bottom: 1px solid var(--ink); }
+.spec-act { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 22px; padding: clamp(28px, 3vw, 44px) var(--pad) clamp(36px, 4vw, 56px); }
+@media (max-width: 860px) {
+  .tb-index a { padding: 11px 8px; font-size: 15px; }
+  .spec-grid { grid-template-columns: 1fr; padding: 0 16px 32px; }
+  .spec-head, .cmp-head { padding-left: 16px; padding-right: 16px; }
+  .cmp thead { display: none; }
+  .cmp, .cmp tbody, .cmp tr, .cmp tbody th, .cmp tbody td { display: block; width: 100%; }
+  .cmp tr { padding: 16px; border-bottom: 1px solid var(--rule-soft); }
+  .cmp tbody th { padding: 0 0 8px; border: 0; font-size: 20px; }
+  .cmp tbody td { padding: 8px 12px; border: 0; }
+  .cmp tbody td::before { content: attr(data-label); display: block; font: 500 12.5px/1.4 var(--mono); color: var(--ink-2); margin-bottom: 2px; }
+  .cmp tbody td:nth-child(3)::before { color: var(--acc); }
+  .cmp-note, .spec-act { padding-left: 16px; padding-right: 16px; }
+  .spec-act .act { width: 100%; justify-content: center; }
+}
