@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en-CA">
+<head>
+<meta charset="utf-8">
+<script>
+  /* GitHub Pages serves this page at whatever path was requested, so relative links need a base.
+     Project site (user.github.io/monashee-drilling-solutions/...): base = first path segment.
+     Custom domain: base = "/". Opened from disk (file:): no base. */
+  (function () {
+    var seg = window.location.pathname.split('/')[1];
+    var onPages = window.location.hostname.slice(-10) === '.github.io';
+    var path = onPages && seg ? '/' + seg + '/' : '/';
+    if (window.location.protocol === 'file:') path = '';   // local preview: keep relative links as they are
+    if (path) {
+      var b = document.createElement('base');
+      b.href = path;
+      document.head.appendChild(b);
+    }
+  })();
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Page not found · Monashee Drilling Solutions Inc.</title>
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&amp;family=IBM+Plex+Sans+Condensed:wght@700&amp;family=IBM+Plex+Sans:wght@400;600&amp;display=swap">
+<style>
+  :root { --paper: #F2F3F0; --ink: #0F2A44; --ink-2: #46566A; --acc: #0B6E4F; --acc-hover: #095C42; }
+  * { box-sizing: border-box; }
+  /* "all: unset" clears the UA spacing on body, h1 and p */
+  body, h1, p { all: unset; }
+  body { box-sizing: border-box; min-height: 100vh; display: grid; place-items: center; padding: 24px 16px; background: var(--paper); color: var(--ink);
+         font: 400 17px/1.55 "IBM Plex Sans", "Segoe UI", Arial, sans-serif; }
+  .card { width: 100%; max-width: 640px; border: 2px solid var(--ink); }
+  .strip { display: grid; grid-template-columns: 64px 1fr; border-bottom: 1px solid var(--ink); font: 500 13px/1 "IBM Plex Mono", Consolas, monospace; }
+  .strip span { padding: 11px 16px; }
+  .strip span:first-child { background: var(--ink); color: var(--paper); text-align: center; padding-inline: 0; }
+  .body { display: grid; grid-template-columns: 96px 1fr; gap: 24px; padding: 28px 24px 32px; align-items: start; }
+  .body img { width: 96px; height: auto; display: block; }
+  h1 { font: 700 clamp(36px, 7vw, 56px)/1.02 "IBM Plex Sans Condensed", "Arial Narrow", sans-serif; }
+  h1, p { display: block; }
+  p { padding-top: 14px; color: var(--ink-2); }
+  a.act { display: inline-flex; align-items: center; min-height: 52px; padding: 0 26px; background: var(--acc); color: #fff;
+          text-decoration: none; font: 700 18px/1.15 "IBM Plex Sans Condensed", "Arial Narrow", sans-serif;
+          clip-path: polygon(18px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 18px) 100%, 0 100%, 0 10px); }
+  a.act:hover { background: var(--acc-hover); }
+  a:focus-visible { outline: 3px solid var(--acc); outline-offset: 3px; clip-path: none; }
+  .go { padding-top: 22px; }
+  .tel { color: var(--ink); font-weight: 600; white-space: nowrap; }
+  @media (max-width: 480px) { .body { grid-template-columns: 1fr; } .body img { width: 64px; } }
+</style>
+</head>
+<body>
+<main class="card">
+  <div class="strip"><span>404</span><span>Monashee Drilling Solutions Inc.</span></div>
+  <div class="body">
+    <img data-src="img/logo-mds-navy.png" width="688" height="811" alt="Monashee Drilling Solutions logo">
+    <div>
+      <h1>Page not found</h1>
+      <p>This address does not match a page on the MDS site. Rental, Uni-Line and information requests are on the main page. You can also call Doug at <a class="tel" href="tel:+12505758169">250-575-8169</a>.</p>
+      <div class="go"><a class="act" href="./">Go to the MDS site</a></div>
+    </div>
+  </div>
+</main>
+<script>
+  /* src is set here, after the <base> above exists, so the preload scanner never requests the logo relative to the 404 URL */
+  Array.prototype.forEach.call(document.querySelectorAll('img[data-src]'), function (img) { img.src = img.getAttribute('data-src'); });
+</script>
+</body>
+</html>
