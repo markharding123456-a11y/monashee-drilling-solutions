@@ -589,3 +589,14 @@ legend { padding: 0; }
   .flow li:not(:last-child)::after { display: grid; content: "\2193"; right: 16px; top: auto; bottom: -17px; }
   .mast .act { width: 100%; justify-content: center; }
 }
+
+/* ---------- watch it work (pilot footage) ---------- */
+.watch { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 3fr) minmax(0, 3fr); gap: 24px; padding: clamp(30px, 3.6vw, 52px) var(--pad); align-items: start; border-bottom: 1px solid var(--ink); }
+.watch-text h3 { font-size: clamp(30px, 3vw, 46px); font-weight: 700; margin-bottom: 16px; }
+.watch-text p { font-size: 18px; line-height: 1.6; color: var(--ink-2); max-width: 30em; margin-bottom: 26px; }
+.vid video { display: block; width: 100%; height: auto; aspect-ratio: 9 / 16; object-fit: cover; background: var(--ink); }
+@media (max-width: 860px) {
+  .watch { grid-template-columns: 1fr 1fr; gap: 18px 12px; padding: 28px 16px; }
+  .watch-text { grid-column: 1 / -1; }
+  .watch-text p { font-size: 17px; }
+}

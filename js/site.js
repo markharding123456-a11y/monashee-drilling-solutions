@@ -169,3 +169,29 @@
     window.location.href = url;
   });
 })(typeof window !== 'undefined' ? window : globalThis);
+
+/* Silent loop in "Watch it work": load and play only once it scrolls into view; for visitors who prefer
+   reduced motion it never autoplays and shows normal play controls instead. */
+(function () {
+  'use strict';
+  if (typeof document === 'undefined') return;
+  var v = document.querySelector('video.vid-loop');
+  if (!v) return;
+  var src = v.getAttribute('data-src');
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce || !('IntersectionObserver' in window)) {
+    v.src = src; v.controls = true; v.removeAttribute('data-src');
+    return;
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) {
+        if (!v.getAttribute('src')) { v.src = src; }
+        var p = v.play(); if (p && p.catch) p.catch(function () { v.controls = true; });
+      } else if (v.getAttribute('src')) {
+        v.pause();
+      }
+    });
+  }, { rootMargin: '200px 0px' });
+  io.observe(v);
+})();
