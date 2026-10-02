@@ -634,3 +634,22 @@ legend { padding: 0; }
   .save-cell .v { font-size: clamp(30px, 9vw, 44px); }
   .save-note { padding: 11px 16px; }
 }
+
+/* ticker v7: head left (2 rows), clock across the top, three counters below */
+.save-grid { grid-template-columns: minmax(0, 1.3fr) repeat(3, minmax(0, 1fr)); }
+.save-head { grid-row: 1 / span 2; }
+.save-clock { grid-column: 2 / -1; border-bottom: 1px solid var(--rule-navy); }
+.save-clock .bar { max-width: 640px; }
+@media (max-width: 1180px) {
+  .save-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .save-head { grid-row: auto; grid-column: 1 / -1; }
+  .save-clock { grid-column: 1 / -1; border-left: 0; }
+  .save-cell:nth-child(2) { border-left: 0; }
+  .save-cell:nth-child(3) { border-left: 0; }
+}
+@media (max-width: 760px) {
+  .save-grid { grid-template-columns: 1fr 1fr; }
+  .save-cell:nth-child(3) { border-left: 0; }
+  .save-cell:nth-child(4) { border-left: 1px solid var(--rule-navy); }
+  .save-money { grid-column: 1 / -1; border-left: 0 !important; border-top: 1px solid var(--rule-navy); }
+}

@@ -204,6 +204,8 @@
   var SAVINGS = {
     m3PerHour: 1.5,     // drilling fluid recovered per hour (placeholder)
     costPerM3: 35,      // CAD of mud product per m3 of mixed fluid (placeholder: midpoint of 1.5-3.0 kg/m3 dosing)
+    kgPerM3: 2.25,      // mud powder per m3 of fluid (placeholder: midpoint of Doug's 1.5-3.0 kg/m3 dosing)
+    kgPerPail: 15,      // Uni-Line pail net weight
     hoursPerDay: 24,    // two 12-hour shifts
     days: 7,
     playSeconds: 12     // how long the simulated week takes on screen
@@ -212,7 +214,7 @@
   if (!root) return;
   var $ = function (sel) { return root.querySelector(sel); };
   var clock = $('[data-save-clock]'), bar = $('[data-save-bar]'), fluid = $('[data-save-fluid]'),
-      money = $('[data-save-money]'), replay = $('[data-save-replay]'), basis = $('[data-save-basis]'),
+      money = $('[data-save-money]'), pails = $('[data-save-pails]'), replay = $('[data-save-replay]'), basis = $('[data-save-basis]'),
       summary = $('[data-save-summary]');
   var totalHours = SAVINGS.days * SAVINGS.hoursPerDay;
   var cad = function (n) { return '$' + Math.round(n).toLocaleString('en-CA'); };
@@ -221,14 +223,17 @@
 
   basis.textContent = 'Example: ' + SAVINGS.m3PerHour + ' m³ of fluid recovered per hour, ' + cad(SAVINGS.costPerM3) +
     ' of mud product per m³, running ' + SAVINGS.hoursPerDay + ' hours a day.';
+  var pailsFor = function (hours) { return hours * SAVINGS.m3PerHour * SAVINGS.kgPerM3 / SAVINGS.kgPerPail; };
   summary.textContent = 'Over ' + SAVINGS.days + ' days: about ' + num(totalHours * SAVINGS.m3PerHour) +
-    ' cubic metres of drilling fluid recovered and ' + cad(totalHours * SAVINGS.m3PerHour * SAVINGS.costPerM3) + ' in mud cost saved.';
+    ' cubic metres of drilling fluid recovered, ' + num(pailsFor(totalHours)) + ' pails of mud not flown in, and ' +
+    cad(totalHours * SAVINGS.m3PerHour * SAVINGS.costPerM3) + ' in mud cost saved.';
 
   function render(hours) {
     var mins = Math.floor(hours * 60), d = Math.floor(mins / 1440), h = Math.floor((mins % 1440) / 60), m = mins % 60;
     clock.textContent = d + 'd ' + pad(h) + 'h ' + pad(m) + 'm';
     bar.style.width = (hours / totalHours * 100).toFixed(2) + '%';
     fluid.textContent = num(hours * SAVINGS.m3PerHour);
+    pails.textContent = num(pailsFor(hours));
     money.textContent = cad(hours * SAVINGS.m3PerHour * SAVINGS.costPerM3);
   }
 
