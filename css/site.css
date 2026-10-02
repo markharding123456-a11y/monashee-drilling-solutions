@@ -652,3 +652,23 @@ legend { padding: 0; }
   .save-cell:nth-child(4) { border-left: 1px solid var(--rule-navy); }
   .save-money { grid-column: 1 / -1; border-left: 0 !important; border-top: 1px solid var(--rule-navy); }
 }
+
+/* savings the ticker does not count */
+.save-extra { display: grid; grid-template-columns: minmax(0, 1.3fr) repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--rule-navy); }
+.save-extra > * { padding: clamp(22px, 2.4vw, 34px) var(--pad); min-width: 0; }
+.save-extra > div { border-left: 1px solid var(--rule-navy); }
+.save-extra h3 { font-size: clamp(22px, 2vw, 30px); font-weight: 700; color: #fff; }
+.save-extra b { display: block; font: 700 21px/1.2 var(--display); color: var(--mint); margin-bottom: 8px; }
+.save-extra p { font-size: 16px; line-height: 1.5; color: #D5DCE3; }
+@media (max-width: 1180px) {
+  .save-extra { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .save-extra h3 { grid-column: 1 / -1; padding-bottom: 0; }
+  .save-extra > div:nth-of-type(1) { border-left: 0; }
+}
+@media (max-width: 760px) {
+  .save-extra { grid-template-columns: 1fr; }
+  .save-extra > * { padding: 18px 16px; }
+  .save-extra h3 { padding-bottom: 0; }
+  .save-extra > div { border-left: 0; border-top: 1px solid var(--rule-navy); }
+  .save-extra > div:nth-of-type(1) { border-top: 0; }
+}
