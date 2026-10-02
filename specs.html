@@ -20,10 +20,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&amp;family=IBM+Plex+Sans+Condensed:wght@600;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap">
-<link rel="stylesheet" href="css/site.css?v=11">
+<link rel="stylesheet" href="css/site.css?v=12">
 </head>
 <body id="top">
-<a class="skip" href="#specs">Skip to content</a>
+<a class="skip" href="#compare">Skip to content</a>
 
 <header class="tb">
   <div class="wrap tb-grid">
@@ -49,10 +49,78 @@
 </header>
 
 <main>
+  <section id="compare" class="vs" aria-labelledby="vs-title">
+    <div class="band band-dark"><div class="wrap band-grid"><span class="band-no">05</span><span class="band-title">With and without the SRU</span></div></div>
+    <div class="wrap vs-head">
+      <h1 id="vs-title">What changes when the SRU is on the pad</h1>
+      <p>Same drill, same program. The SRU cleans the mud at the drill so it goes back down the hole instead of into the sump.</p>
+    </div>
+    <div class="wrap">
+      <table class="vs-table">
+        <thead>
+          <tr>
+            <th scope="col"><span class="sr-only">What changes</span></th>
+            <th scope="col" class="vs-no">Without the SRU</th>
+            <th scope="col" class="vs-yes"><img src="img/logo-mds-white.png" width="688" height="811" alt="" class="vs-logo">With the MDS SRU</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Drilling mud</th>
+            <td class="vs-no" data-label="Without the SRU"><svg class="vs-ic" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 10h10" fill="none" stroke="currentColor" stroke-width="2.4"/></svg><span>Dumped when it fills with cuttings</span></td>
+            <td class="vs-yes" data-label="With the MDS SRU"><svg class="vs-ic" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M3.5 10.5l4.2 4.2L16.5 5.5" fill="none" stroke="currentColor" stroke-width="2.6"/></svg><span>Cleaned at the drill and reused</span></td>
+          </tr>
+          <tr>
+            <th scope="row">Mud pails flown in</th>
+            <td class="vs-no" data-label="Without the SRU"><svg class="vs-ic" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 10h10" fill="none" stroke="currentColor" stroke-width="2.4"/></svg><span>Every dumped batch is replaced</span></td>
+            <td class="vs-yes" data-label="With the MDS SRU"><svg class="vs-ic" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M3.5 10.5l4.2 4.2L16.5 5.5" fill="none" stroke="currentColor" stroke-width="2.6"/></svg><span>Fewer. Reused mud only needs topping up.</span></td>
+          </tr>
+          <tr>
+            <th scope="row">Water</th>
+            <td class="vs-no" data-label="Without the SRU"><svg class="vs-ic" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 10h10" fill="none" stroke="currentColor" stroke-width="2.4"/></svg><span>Replace every load that is dumped</span></td>
+            <td class="vs-yes" data-label="With the MDS SRU"><svg class="vs-ic" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M3.5 10.5l4.2 4.2L16.5 5.5" fill="none" stroke="currentColor" stroke-width="2.6"/></svg><span>Less to pump or haul</span></td>
+          </tr>
+          <tr>
+            <th scope="row">Sump</th>
+            <td class="vs-no" data-label="Without the SRU"><svg class="vs-ic" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 10h10" fill="none" stroke="currentColor" stroke-width="2.4"/></svg><span>Holds the dumped fluid and the cuttings</span></td>
+            <td class="vs-yes" data-label="With the MDS SRU"><svg class="vs-ic" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M3.5 10.5l4.2 4.2L16.5 5.5" fill="none" stroke="currentColor" stroke-width="2.6"/></svg><span>Holds the separated solids, with less fluid</span></td>
+          </tr>
+          <tr>
+            <th scope="row">Reclamation and haul-out</th>
+            <td class="vs-no" data-label="Without the SRU"><svg class="vs-ic" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 10h10" fill="none" stroke="currentColor" stroke-width="2.4"/></svg><span>More volume at the end of the program</span></td>
+            <td class="vs-yes" data-label="With the MDS SRU"><svg class="vs-ic" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M3.5 10.5l4.2 4.2L16.5 5.5" fill="none" stroke="currentColor" stroke-width="2.6"/></svg><span>Less volume to reclaim or haul out</span></td>
+          </tr>
+          <tr>
+            <th scope="row">Helicopter trips</th>
+            <td class="vs-no" data-label="Without the SRU"><svg class="vs-ic" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 10h10" fill="none" stroke="currentColor" stroke-width="2.4"/></svg><span>Regular mud and water resupply</span></td>
+            <td class="vs-yes" data-label="With the MDS SRU"><svg class="vs-ic" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M3.5 10.5l4.2 4.2L16.5 5.5" fill="none" stroke="currentColor" stroke-width="2.6"/></svg><span>Fewer resupply runs</span></td>
+          </tr>
+          <tr>
+            <th scope="row">Fuel</th>
+            <td class="vs-no" data-label="Without the SRU"><svg class="vs-ic" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 10h10" fill="none" stroke="currentColor" stroke-width="2.4"/></svg><span>Burned on every resupply flight</span></td>
+            <td class="vs-yes" data-label="With the MDS SRU"><svg class="vs-ic" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M3.5 10.5l4.2 4.2L16.5 5.5" fill="none" stroke="currentColor" stroke-width="2.6"/></svg><span>Fewer flights, and a low-fuel generator</span></td>
+          </tr>
+          <tr>
+            <th scope="row">Mixing on the pad</th>
+            <td class="vs-no" data-label="Without the SRU"><svg class="vs-ic" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 10h10" fill="none" stroke="currentColor" stroke-width="2.4"/></svg><span>Mixed separately at the drill</span></td>
+            <td class="vs-yes" data-label="With the MDS SRU"><svg class="vs-ic" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M3.5 10.5l4.2 4.2L16.5 5.5" fill="none" stroke="currentColor" stroke-width="2.6"/></svg><span>Built-in premix tank and high-shear mixer</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="wrap vs-foot">
+      <div class="act-row">
+        <a class="act act-mint" href="index.html?request=rental#requests">Request rental rates</a>
+        <p class="act-alt">or call MDS <a href="tel:+12505758169">250-575-8169</a></p>
+      </div>
+      <p class="vs-note">Compares mud handling at a diamond drill with and without solids removal. Actual results depend on ground conditions, the drilling program and site requirements.</p>
+    </div>
+  </section>
+
   <section id="specs" aria-labelledby="specs-title">
-    <div class="band"><div class="wrap band-grid"><span class="band-no">05</span><span class="band-title">Specifications</span></div></div>
+    <div class="band"><div class="wrap band-grid"><span class="band-no" aria-hidden="true">&mdash;</span><span class="band-title">Specifications</span></div></div>
     <div class="wrap spec-head">
-      <h1 id="specs-title">SRU specifications</h1>
+      <h2 id="specs-title">SRU specifications</h2>
       <p>Figures provided by MDS for the current unit. For anything not listed here, ask for the equipment information package.</p>
     </div>
     <div class="wrap spec-grid">
@@ -84,33 +152,11 @@
       </table>
     </div>
   </section>
+  <div class="wrap spec-act">
+    <a class="act" href="index.html?request=package#requests">Get the equipment information package</a>
+    <p class="act-alt">or call MDS <a href="tel:+12505758169">250-575-8169</a></p>
+  </div>
 
-  <section id="compare" aria-labelledby="cmp-title">
-    <div class="wrap cmp-head">
-      <h2 id="cmp-title">A drill program without the SRU, and with it</h2>
-      <p>What changes in mud handling at the drill when the SRU is on the pad.</p>
-    </div>
-    <div class="wrap">
-      <table class="cmp">
-        <thead><tr><th scope="col"><span class="sr-only">Item</span></th><th scope="col">Without the SRU</th><th scope="col">With the MDS SRU</th></tr></thead>
-        <tbody>
-          <tr><th scope="row">Drilling mud</th><td data-label="Without the SRU">Dumped once it is loaded with cuttings, then new mud is mixed</td><td data-label="With the MDS SRU">Solids are taken out at the drill and the same mud goes back down the hole</td></tr>
-          <tr><th scope="row">Mud pails flown in</th><td data-label="Without the SRU">Every batch that is dumped has to be replaced</td><td data-label="With the MDS SRU">Fewer. Reused mud only needs topping up.</td></tr>
-          <tr><th scope="row">Water</th><td data-label="Without the SRU">Replace the fluid that is dumped</td><td data-label="With the MDS SRU">Less to pump or haul. Recycled fluid is used again.</td></tr>
-          <tr><th scope="row">Sump</th><td data-label="Without the SRU">Takes the dumped fluid and the cuttings</td><td data-label="With the MDS SRU">Takes the separated solids, with less fluid to contain</td></tr>
-          <tr><th scope="row">Reclamation and haul-out</th><td data-label="Without the SRU">More volume to reclaim or haul out at the end of the program</td><td data-label="With the MDS SRU">Less volume to reclaim or haul out</td></tr>
-          <tr><th scope="row">Helicopter trips</th><td data-label="Without the SRU">Regular resupply runs for mud and water</td><td data-label="With the MDS SRU">Fewer resupply runs for mud and water</td></tr>
-          <tr><th scope="row">Fuel</th><td data-label="Without the SRU">Fuel burned on those resupply flights</td><td data-label="With the MDS SRU">Fewer flights. The SRU&rsquo;s own generator has low fuel consumption.</td></tr>
-          <tr><th scope="row">Mixing on the pad</th><td data-label="Without the SRU">Mixed separately at the drill</td><td data-label="With the MDS SRU">Premix tank with high-shear mixer built into the SRU</td></tr>
-        </tbody>
-      </table>
-      <p class="cmp-note">This compares mud handling at a diamond drill with and without solids removal. Actual results depend on ground conditions, the drilling program and site requirements.</p>
-    </div>
-    <div class="wrap spec-act">
-      <a class="act" href="index.html?request=package#requests">Get the equipment information package</a>
-      <p class="act-alt">or call MDS <a href="tel:+12505758169">250-575-8169</a></p>
-    </div>
-  </section>
 </main>
 
 <footer class="foot">

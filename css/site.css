@@ -727,3 +727,46 @@ legend { padding: 0; }
   .cmp-note, .spec-act { padding-left: 16px; padding-right: 16px; }
   .spec-act .act { width: 100%; justify-content: center; }
 }
+
+/* ---------- specs page v2: with / without scoreboard ---------- */
+.vs { background: var(--navy); color: var(--on-navy); }
+.vs-head { padding: clamp(36px, 4.6vw, 72px) var(--pad) clamp(24px, 2.8vw, 40px); }
+.vs-head h1 { font-size: clamp(42px, 5vw, 84px); line-height: 0.98; color: #fff; max-width: 13em; margin-bottom: 18px; }
+.vs-head p { font-size: clamp(18px, 1.4vw, 21px); line-height: 1.55; color: #D5DCE3; max-width: 38em; }
+.vs-table { border-top: 2px solid var(--mint); }
+.vs-table thead th { text-align: left; padding: 18px 22px; font: 700 clamp(20px, 1.8vw, 26px)/1.15 var(--display); border-bottom: 1px solid var(--rule-navy); }
+.vs-table thead th:first-child { padding-left: var(--pad); }
+.vs-table thead .vs-no { color: var(--mute-navy); }
+.vs-table thead .vs-yes { background: var(--mint); color: var(--ink); }
+.vs-logo { display: inline-block; width: 26px; height: auto; margin-right: 12px; vertical-align: -6px; filter: brightness(0) saturate(100%) invert(13%) sepia(37%) saturate(1530%) hue-rotate(181deg) brightness(93%) contrast(95%); }
+.vs-table tbody th { width: 24%; text-align: left; vertical-align: middle; padding: 18px 22px 18px var(--pad); font: 700 clamp(19px, 1.6vw, 23px)/1.2 var(--display); color: #fff; border-bottom: 1px solid var(--rule-navy); }
+.vs-table tbody td { width: 38%; vertical-align: middle; padding: 18px 22px; border-bottom: 1px solid var(--rule-navy); font-size: 17px; line-height: 1.45; }
+.vs-table td { position: relative; }
+.vs-table td > span { display: block; padding-left: 34px; }
+.vs-ic { position: absolute; left: 22px; top: 50%; width: 22px; height: 22px; transform: translateY(-50%); }
+.vs-table tbody .vs-no { color: var(--mute-navy); }
+.vs-table tbody .vs-no .vs-ic { color: #6B7F93; }
+.vs-table tbody .vs-yes { background: #16395B; color: #fff; font-weight: 600; font-size: 18px; border-left: 3px solid var(--mint); }
+.vs-table tbody .vs-yes .vs-ic { color: var(--mint); }
+.vs-table tbody tr:hover .vs-yes { background: #1B4469; }
+.vs-foot { padding: clamp(28px, 3.2vw, 46px) var(--pad) clamp(32px, 3.6vw, 52px); display: flex; flex-direction: column; gap: 22px; }
+.vs .act-alt { color: var(--mute-navy); font-size: 17px; }
+.vs .act-alt a { color: #fff; }
+.vs-note { font: 500 12.5px/1.5 var(--mono); color: var(--mute-navy); max-width: 70em; }
+.vs :focus-visible { outline-color: var(--mint); }
+#specs .spec-head h2 { font-size: clamp(36px, 4vw, 60px); font-weight: 700; margin-bottom: 14px; }
+@media (max-width: 860px) {
+  .vs-head { padding: 30px 16px 24px; }
+  .vs-head h1 { font-size: clamp(38px, 10.4vw, 58px); }
+  .vs-table thead { display: none; }
+  .vs-table, .vs-table tbody, .vs-table tr, .vs-table tbody th, .vs-table tbody td { display: block; width: 100%; }
+  .vs-table tr { padding: 18px 16px; border-bottom: 1px solid var(--rule-navy); }
+  .vs-table tbody th { padding: 0 0 10px; border: 0; font-size: 22px; }
+  .vs-table tbody td { padding: 10px 12px 10px 12px; border: 0; }
+  .vs-table tbody td::before { content: attr(data-label); display: block; font: 500 12.5px/1.4 var(--mono); padding-left: 34px; margin-bottom: 2px; }
+  .vs-table tbody .vs-no::before { color: #8A9BAD; }
+  .vs-table tbody .vs-yes::before { color: var(--mint); }
+  .vs-ic { left: 12px; }
+  .vs-foot { padding: 26px 16px 32px; }
+  .vs .act { width: 100%; justify-content: center; }
+}
