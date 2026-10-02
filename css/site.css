@@ -465,13 +465,12 @@ legend { padding: 0; }
 
 /* laptop / tablet landscape: the H1 spans both columns above a rule; lede, terms and action sit beside the photo */
 @media (min-width: 861px) and (max-width: 1180px) {
-  .hero { grid-template-rows: auto auto auto 1fr; }
+  .hero { grid-template-rows: auto auto 1fr; }
   .hero-text { display: contents; }
   .hero .unit-title { grid-column: 1 / -1; grid-row: 1; padding: 36px var(--pad) 28px; border-bottom: 1px solid var(--ink); }
   .hero .lede { grid-column: 1; grid-row: 2; padding: 26px var(--pad) 0; }
-  .hero .terms { grid-column: 1; grid-row: 3; margin: 22px var(--pad) 0; }
-  .hero .parts { grid-column: 1; grid-row: 4; align-self: start; margin: 24px var(--pad) 36px; width: auto; }
-  .hero-fig { grid-column: 2; grid-row: 2 / 5; }
+  .hero .parts { grid-column: 1; grid-row: 3; align-self: start; margin: 24px var(--pad) 36px; width: auto; }
+  .hero-fig { grid-column: 2; grid-row: 2 / 4; }
 }
 
 /* tablet portrait: field trial and founder side by side, photo above text */

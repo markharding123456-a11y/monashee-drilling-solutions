@@ -50,8 +50,8 @@ through that third party.
 3. At the domain registrar, point the domain at GitHub Pages (the `A` / `AAAA` records and the `www` `CNAME` listed in
    GitHub's Pages documentation), replacing the current parking page. Change only the web records: do NOT touch the
    `MX`, `SPF` (TXT) or `DKIM` records — they carry the company email.
-4. Change `og:image` in `index.html` to the full address, e.g.
-   `https://monasheedrillingsolutions.com/img/sru-3344-1600.jpg` (link previews need an absolute URL).
+4. In `index.html`, change `og:image` and `og:url` from the github.io preview address to the domain, e.g.
+   `https://monasheedrillingsolutions.com/img/drillsite-1600.jpg` (link previews need a full URL).
 5. `404.html` works out its own base path: on `*.github.io` it uses the first path segment, on the custom domain it uses `/`.
 
 All links in the site are relative, so no other paths need to change.
