@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&amp;family=IBM+Plex+Sans+Condensed:wght@600;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap">
-<link rel="stylesheet" href="css/site.css?v=5">
+<link rel="stylesheet" href="css/site.css?v=6">
 </head>
 <body id="top">
 <a class="skip" href="#how">Skip to content</a>
@@ -120,6 +120,35 @@
       </div>
     </div>
     <p class="wrap why-note" id="fn-1"><span>1.</span> Design figures: 2,150&nbsp;lb (975&nbsp;kg), single-lift helicopter transport. The built unit&rsquo;s weight is to be confirmed by MDS.</p>
+  </section>
+
+  <!-- Savings ticker: one simulated week. PLACEHOLDER figures live in js/site.js (SAVINGS) - replace with measured MDS data before launch. -->
+  <section class="save" id="savings" aria-labelledby="save-title">
+    <div class="wrap save-grid">
+      <div class="save-head">
+        <h2 id="save-title">What one SRU could save in a week</h2>
+        <p class="save-basis" data-save-basis>Based on fluid recovered per hour and the cost of mixed mud, running around the clock.</p>
+        <button class="save-replay" type="button" data-save-replay>Replay the week</button>
+      </div>
+      <div class="save-cell save-clock" aria-hidden="true">
+        <span class="k">Run time</span>
+        <span class="v" data-save-clock>0d 00h 00m</span>
+        <span class="bar"><i data-save-bar></i></span>
+        <span class="s">Day 0 to day 7</span>
+      </div>
+      <div class="save-cell" aria-hidden="true">
+        <span class="k">Drilling fluid recovered</span>
+        <span class="v"><span data-save-fluid>0</span><span class="u">m³</span></span>
+        <span class="s">Cleaned and sent back down the hole</span>
+      </div>
+      <div class="save-cell save-money" aria-hidden="true">
+        <span class="k">Mud cost saved</span>
+        <span class="v" data-save-money>0</span>
+        <span class="s">Mud product only, before water hauling and disposal</span>
+      </div>
+      <p class="sr-only" data-save-summary></p>
+    </div>
+    <p class="wrap save-note">Example figures for this preview, to be replaced with measured MDS data.</p>
   </section>
 
   <!-- 02 The unit -->
@@ -390,6 +419,6 @@
   </div>
 </footer>
 
-<script src="js/site.js?v=5"></script>
+<script src="js/site.js?v=6"></script>
 </body>
 </html>

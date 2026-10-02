@@ -195,3 +195,62 @@
   }, { rootMargin: '200px 0px' });
   io.observe(v);
 })();
+
+/* Savings ticker: plays one simulated week (day 0 to day 7) in a few seconds once it scrolls into view.
+   PLACEHOLDER FIGURES - replace with measured MDS data before the site goes live on its own domain. */
+(function () {
+  'use strict';
+  if (typeof document === 'undefined') return;
+  var SAVINGS = {
+    m3PerHour: 1.5,     // drilling fluid recovered per hour (placeholder)
+    costPerM3: 35,      // CAD of mud product per m3 of mixed fluid (placeholder: midpoint of 1.5-3.0 kg/m3 dosing)
+    hoursPerDay: 24,    // two 12-hour shifts
+    days: 7,
+    playSeconds: 12     // how long the simulated week takes on screen
+  };
+  var root = document.getElementById('savings');
+  if (!root) return;
+  var $ = function (sel) { return root.querySelector(sel); };
+  var clock = $('[data-save-clock]'), bar = $('[data-save-bar]'), fluid = $('[data-save-fluid]'),
+      money = $('[data-save-money]'), replay = $('[data-save-replay]'), basis = $('[data-save-basis]'),
+      summary = $('[data-save-summary]');
+  var totalHours = SAVINGS.days * SAVINGS.hoursPerDay;
+  var cad = function (n) { return '$' + Math.round(n).toLocaleString('en-CA'); };
+  var num = function (n) { return Math.round(n).toLocaleString('en-CA'); };
+  var pad = function (n) { return (n < 10 ? '0' : '') + n; };
+
+  basis.textContent = 'Example: ' + SAVINGS.m3PerHour + ' m³ of fluid recovered per hour, ' + cad(SAVINGS.costPerM3) +
+    ' of mud product per m³, running ' + SAVINGS.hoursPerDay + ' hours a day.';
+  summary.textContent = 'Over ' + SAVINGS.days + ' days: about ' + num(totalHours * SAVINGS.m3PerHour) +
+    ' cubic metres of drilling fluid recovered and ' + cad(totalHours * SAVINGS.m3PerHour * SAVINGS.costPerM3) + ' in mud cost saved.';
+
+  function render(hours) {
+    var mins = Math.floor(hours * 60), d = Math.floor(mins / 1440), h = Math.floor((mins % 1440) / 60), m = mins % 60;
+    clock.textContent = d + 'd ' + pad(h) + 'h ' + pad(m) + 'm';
+    bar.style.width = (hours / totalHours * 100).toFixed(2) + '%';
+    fluid.textContent = num(hours * SAVINGS.m3PerHour);
+    money.textContent = cad(hours * SAVINGS.m3PerHour * SAVINGS.costPerM3);
+  }
+
+  var raf = null;
+  function play() {
+    if (raf) cancelAnimationFrame(raf);
+    var start = null, dur = SAVINGS.playSeconds * 1000;
+    function step(ts) {
+      if (start === null) start = ts;
+      var p = Math.min(1, (ts - start) / dur);
+      render(p * totalHours);
+      raf = p < 1 ? requestAnimationFrame(step) : null;
+    }
+    raf = requestAnimationFrame(step);
+  }
+
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  replay.addEventListener('click', function () { reduce ? render(totalHours) : play(); });
+  if (reduce || !('IntersectionObserver' in window)) { render(totalHours); return; }
+  render(0);
+  var io = new IntersectionObserver(function (entries) {
+    if (entries[0].isIntersecting) { io.disconnect(); play(); }
+  }, { threshold: 0.4 });
+  io.observe(root);
+})();
